@@ -3,8 +3,9 @@ import { Link, NavLink } from "react-router";
 import { GiCarWheel, GiHamburgerMenu } from "react-icons/gi";
 import logoDark from "../assets/logoDark.png";
 import logoLight from "../assets/logoLight.png";
+import useTheme from "../hooks/useTheme";
 const Navbar = () => {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const { theme, setTheme } = useTheme();
   useEffect(() => {
     const html = document.querySelector("html");
     html.setAttribute("data-theme", theme);
@@ -48,7 +49,7 @@ const Navbar = () => {
             </ul>
           </div>
           <img
-            className="w-[200px]"
+            className="w-32"
             src={theme === "dark" ? logoDark : logoLight}
             alt=""
           />
