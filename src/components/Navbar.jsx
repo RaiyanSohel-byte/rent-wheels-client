@@ -33,7 +33,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="bg-base-200 shadow-sm text-primary">
+    <div className="bg-base-200 shadow-sm text-primary fixed top-0 left-0 w-full z-[100]">
       <div className="navbar max-w-[1440px] mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
