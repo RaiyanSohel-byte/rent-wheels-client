@@ -6,8 +6,10 @@ import logoDark from "../assets/logoDark.png";
 import logoLight from "../assets/logoLight.png";
 import useTheme from "../hooks/useTheme";
 import useAuth from "../hooks/useAuth";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 const Navbar = () => {
-  const { user } = useAuth();
+  const { user, logOutUser } = useAuth();
   const { theme, setTheme } = useTheme();
   useEffect(() => {
     const html = document.querySelector("html");
@@ -16,6 +18,32 @@ const Navbar = () => {
   }, [theme]);
   const handleTheme = (checked) => {
     setTheme(checked ? "dark" : "light");
+  };
+  const handleLogout = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Log Out!",
+      theme: `${theme === "dark" ? "dark" : "light"}`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOutUser()
+          .then(() => {})
+          .catch((error) => {
+            toast.error(error.code);
+          });
+        Swal.fire({
+          title: "Logged Out!",
+          text: "You have been logged out.",
+          icon: "success",
+          theme: `${theme === "dark" ? "dark" : "light"}`,
+        });
+      }
+    });
   };
   const links = (
     <>
@@ -124,7 +152,7 @@ const Navbar = () => {
                 <div className="w-14 rounded-full border-2 border-primary">
                   <img
                     alt="Tailwind CSS Navbar component"
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                    src={user.photoURL}
                   />
                 </div>
               </div>
@@ -135,16 +163,16 @@ const Navbar = () => {
                 <li className="mb-2">
                   <div className="flex items-center gap-3 p-2 bg-base-100 rounded-lg">
                     <img
-                      src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                      src={user.photoURL}
                       alt="User Avatar"
                       className="w-12 h-12 rounded-full border-2 border-primary"
                     />
                     <div className="flex flex-col">
                       <span className="font-semibold text-primary">
-                        Raiyan Sohel
+                        {user.displayName}
                       </span>
                       <span className="text-sm text-gray-400">
-                        raiyan@example.com
+                        {user.email}
                       </span>
                     </div>
                   </div>
@@ -153,7 +181,10 @@ const Navbar = () => {
                 <li className="border-t border-primary/20 my-2"></li>
 
                 <li>
-                  <button className="btn btn-sm w-full bg-primary text-base-100 hover:bg-primary/90 transition-all">
+                  <button
+                    onClick={handleLogout}
+                    className="btn btn-sm w-full bg-primary text-base-100 hover:bg-primary/90 transition-all"
+                  >
                     Log Out
                   </button>
                 </li>

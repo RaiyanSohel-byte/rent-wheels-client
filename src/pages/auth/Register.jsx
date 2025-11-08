@@ -39,11 +39,9 @@ const Register = () => {
   };
 
   return (
-    <section className="min-h-[calc(100vh+150px)] flex items-center justify-center bg-base-100 text-base-content relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/7 to-neutral/10 backdrop-blur-md"></div>
-
+    <section className="min-h-[calc(100vh+150px)] flex items-center justify-center bg-base-200 text-base-content relative overflow-hidden">
       <motion.div
-        className="relative w-full max-w-md p-8 rounded-2xl border border-white/10 shadow-2xl bg-base-200/40 backdrop-blur-xl"
+        className="relative w-full max-w-md p-8 rounded-2xl border border-white/20 shadow-md bg-white/1 backdrop-blur-xl"
         variants={containerVariants}
         initial="hidden"
         animate="visible"

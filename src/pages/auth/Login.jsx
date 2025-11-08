@@ -2,9 +2,22 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router";
+import useAuth from "../../hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
+  const { googleLogin } = useAuth();
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then(() => {
+        toast.success("Login Success");
+      })
+      .catch((error) => {
+        toast.error(error.code);
+      });
+  };
 
   const containerVariants = {
     hidden: { opacity: 0, y: 40 },
@@ -25,11 +38,9 @@ const Login = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-base-100 text-base-content relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-neutral/10 backdrop-blur-md"></div>
-
+    <section className="min-h-screen flex items-center justify-center bg-base-200 text-base-content relative overflow-hidden">
       <motion.div
-        className="relative w-full max-w-md p-8 rounded-2xl border border-white/10 shadow-2xl bg-base-200/40 backdrop-blur-xl"
+        className="relative w-full max-w-md p-8 rounded-2xl border border-white/20 shadow-md bg-white/1 backdrop-blur-xl"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -55,6 +66,7 @@ const Login = () => {
             </label>
             <input
               type="email"
+              name="email"
               placeholder="you@example.com"
               className="input input-bordered w-full bg-base-100/40 backdrop-blur-sm"
               required
@@ -73,7 +85,8 @@ const Login = () => {
             </label>
             <input
               type={showPass ? "text" : "password"}
-              placeholder="••••••••"
+              name="password"
+              placeholder="Enter Your Password"
               className="input input-bordered w-full pr-10 bg-base-100/40 backdrop-blur-sm"
               required
             />
@@ -108,6 +121,7 @@ const Login = () => {
         </motion.div>
 
         <button
+          onClick={handleGoogleLogin}
           className="btn btn-outline w-full bg-secondary/40 backdrop-blur-md text-accent hover:bg-accent hover:text-white transition-all"
           variants={itemVariants}
           custom={6}
