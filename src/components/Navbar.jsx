@@ -61,42 +61,6 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/addCar"
-          className={({ isActive }) =>
-            isActive
-              ? "text-accent font-bold border-b-2 border-accent"
-              : "text-base-content hover:text-accent transition-colors"
-          }
-        >
-          Add Car
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/myListings"
-          className={({ isActive }) =>
-            isActive
-              ? "text-accent font-bold border-b-2 border-accent"
-              : "text-base-content hover:text-accent transition-colors"
-          }
-        >
-          My Listings
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/myBookings"
-          className={({ isActive }) =>
-            isActive
-              ? "text-accent font-bold border-b-2 border-accent"
-              : "text-base-content hover:text-accent transition-colors"
-          }
-        >
-          My Bookings
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
           to="/browseCars"
           className={({ isActive }) =>
             isActive
@@ -105,6 +69,71 @@ const Navbar = () => {
           }
         >
           Browse Cars
+        </NavLink>
+      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink
+              to="/addCar"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-accent font-bold border-b-2 border-accent"
+                  : "text-base-content hover:text-accent transition-colors"
+              }
+            >
+              Add Car
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/myListings"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-accent font-bold border-b-2 border-accent"
+                  : "text-base-content hover:text-accent transition-colors"
+              }
+            >
+              My Listings
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/myBookings"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-accent font-bold border-b-2 border-accent"
+                  : "text-base-content hover:text-accent transition-colors"
+              }
+            >
+              My Bookings
+            </NavLink>
+          </li>
+        </>
+      )}
+      <li>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive
+              ? "text-accent font-bold border-b-2 border-accent"
+              : "text-base-content hover:text-accent transition-colors"
+          }
+        >
+          About
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive
+              ? "text-accent font-bold border-b-2 border-accent"
+              : "text-base-content hover:text-accent transition-colors"
+          }
+        >
+          Contact
         </NavLink>
       </li>
     </>

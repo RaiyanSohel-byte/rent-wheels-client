@@ -2,9 +2,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router";
-
+import useAuth from "../../hooks/useAuth";
+import { toast } from "react-toastify";
 const Register = () => {
   const [showPass, setShowPass] = useState(false);
+  const { googleLogin, createUser, updateUser, setUser } = useAuth();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -15,9 +17,32 @@ const Register = () => {
     const photo = e.target.photo.value;
     const password = e.target.password.value;
     if (!passwordRegex.test(password)) {
+      toast.error(
+        "Password must be at least 6 characters long and include at least one uppercase and one lowercase letter."
+      );
       return;
     }
+
     console.log({ name, email, photo, password });
+    createUser(email, password).then((result) => {
+      updateUser({ displayName: name, photoURL: photo })
+        .then(() => {
+          setUser({ ...result.user, displayName: name, photoURL: photo });
+        })
+        .catch((error) => {
+          toast.error(error.code);
+        });
+      toast.success("Registration Successful");
+    });
+  };
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then(() => {
+        toast.success("Login Success");
+      })
+      .catch((error) => {
+        toast.error(error.code);
+      });
   };
 
   const containerVariants = {
@@ -51,7 +76,7 @@ const Register = () => {
           variants={itemVariants}
           custom={0}
         >
-          Welcome Back
+          Join Us!
         </motion.h2>
 
         <motion.form onSubmit={(e) => handleRegister(e)} className="space-y-5">
@@ -121,7 +146,7 @@ const Register = () => {
             </label>
             <input
               type={showPass ? "text" : "password"}
-              placeholder="••••••••"
+              placeholder="Your Password"
               className="input input-bordered w-full pr-10 bg-base-100/40 backdrop-blur-sm"
               name="password"
               required
@@ -157,6 +182,7 @@ const Register = () => {
         </motion.div>
 
         <button
+          onClick={handleGoogleLogin}
           className="btn btn-outline w-full bg-secondary/40 backdrop-blur-md text-accent hover:bg-accent hover:text-white transition-all"
           variants={itemVariants}
           custom={6}
