@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Enable daisyUI plugin */
 @plugin "daisyui";
 
 /* Light Theme */
@@ -8,11 +7,11 @@
   name: "light";
   default: true;
 
-  --color-primary: #d97706;
-  --color-secondary: #10b981;
+  --color-primary: #252d3f;
+  --color-secondary: #f8fafc;
   --color-accent: #f43f5e;
   --color-neutral: #1f1f1f;
-  --color-base-100: #fafaf9;
+  --color-base-100: #ffffff;
   --color-base-content: #111111;
   --color-success: #16a34a;
   --color-error: #dc2626;
@@ -22,15 +21,19 @@
 @plugin "daisyui/theme" {
   name: "dark";
 
-  --color-primary: #f59e0b;
-  --color-secondary: #059669;
+  --color-primary: #f8fafc;
+  --color-secondary: #252d3f;
   --color-accent: #fb7185;
   --color-neutral: #262626;
-  --color-base-100: #181818;
+  --color-base-100: #000000;
+  --color-base-200: #121214;
   --color-base-content: #f3f4f6;
   --color-success: #22c55e;
   --color-error: #ef4444;
 }
 body {
   font-family: "Inter", sans-serif;
+}
+.lobster {
+  font-family: "Lobster", sans-serif;
 }
