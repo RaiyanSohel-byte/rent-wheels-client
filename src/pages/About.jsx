@@ -1,5 +1,5 @@
 import React from "react";
-import aboutImage from "../assets/aboutImage.jpg";
+import aboutImage from "../assets/aboutImage2.jpg";
 import { motion } from "framer-motion";
 import { FaCar, FaHandshake, FaDollarSign, FaClock } from "react-icons/fa";
 import OurTeam from "../components/OurTeam";

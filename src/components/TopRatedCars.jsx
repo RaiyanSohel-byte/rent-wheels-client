@@ -7,28 +7,28 @@ const cars = [
     name: "Tesla Model S",
     img: "https://hips.hearstapps.com/hmg-prod/images/2025-tesla-model-s-1-672d42e172407.jpg?crop=0.465xw:0.466xh;0.285xw,0.361xh&resize=1200:*",
     rating: 4.9,
-    price: 120,
+    price: 12000,
     type: "Electric Sedan",
   },
   {
     name: "Range Rover Sport",
     img: "https://di-uploads-pod1.dealerinspire.com/landroverwillowgrove/uploads/2019/07/2020-Land-Rover-Range-Rover-Sport-Driving.jpg",
     rating: 4.8,
-    price: 150,
+    price: 15000,
     type: "Luxury SUV",
   },
   {
     name: "Toyota Corolla",
     img: "https://media.ed.edmunds-media.com/toyota/corolla/2026/oem/2026_toyota_corolla_sedan_xse_fq_oem_1_815.jpg",
     rating: 4.7,
-    price: 70,
+    price: 7000,
     type: "Compact Sedan",
   },
   {
     name: "BMW i8",
     img: "https://images.unsplash.com/photo-1667551181687-e3eb9babf037?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
     rating: 4.9,
-    price: 200,
+    price: 20000,
     type: "Hybrid Sports Car",
   },
 ];
@@ -85,7 +85,7 @@ const TopRatedCars = () => {
                   <span className="ml-2 text-gray-600">{car.rating}</span>
                 </div>
                 <p className="font-semibold text-primary text-lg">
-                  ${car.price}/day
+                  ৳{car.price}/day
                 </p>
               </div>
             </motion.div>

@@ -7,6 +7,7 @@ import "swiper/css/effect-fade";
 import heroCar1 from "../assets/heroCar1.jpg";
 import heroCar2 from "../assets/heroCar2.jpg";
 import heroCar3 from "../assets/heroCar3.jpg";
+import { Link } from "react-router";
 
 const HeroSection = () => {
   const slides = [
@@ -69,13 +70,14 @@ const HeroSection = () => {
                   {slide.subtitle}
                 </motion.p>
 
-                <motion.button
+                <Link
+                  to="/browseCars"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="btn bg-gray-200 text-gray-800"
                 >
                   Browse Cars
-                </motion.button>
+                </Link>
               </div>
             </div>
           </SwiperSlide>

@@ -7,7 +7,7 @@ import ScrollToTopButton from "../components/ScrollToTopButton";
 
 const MainLayout = () => {
   return (
-    <div className="bg-gradient-to-r from-base-100 to-accent/7">
+    <div className="bg-gradient-to-r from-base-100 to-accent/5">
       <Navbar />
       <ScrollToTop />
       <Outlet />

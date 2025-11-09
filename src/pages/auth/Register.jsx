@@ -152,7 +152,7 @@ const Register = () => {
               required
             />
             <div
-              className="absolute right-3 top-9 cursor-pointer text-gray-500"
+              className="absolute z-10 right-3 top-9 cursor-pointer text-gray-500"
               onClick={() => setShowPass(!showPass)}
             >
               {showPass ? <FaEyeSlash /> : <FaEye />}

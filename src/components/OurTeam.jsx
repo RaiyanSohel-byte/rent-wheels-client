@@ -5,6 +5,7 @@ import team2 from "../assets/team2.jpg";
 import team3 from "../assets/team3.jpg";
 import team4 from "../assets/team4.jpg";
 import team5 from "../assets/team5.jpg";
+import team6 from "../assets/team6.jpg";
 
 const teamMembers = [
   { name: "Raiyan Sohel", role: "Founder & CEO", img: team1 },
@@ -12,12 +13,13 @@ const teamMembers = [
   { name: "Zahir Karim", role: "Lead Designer", img: team3 },
   { name: "Jahid Hasan", role: "Marketing Head", img: team4 },
   { name: "Rakib Chowdhury", role: "Sales Executive", img: team5 },
+  { name: "Arman Hossain", role: "HR Manager", img: team6 },
 ];
 
 const OurTeam = () => {
   return (
     <section className="py-20 text-base-content">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-[1440px] mx-auto px-4">
         <h2
           className="title text-center my-10
         "

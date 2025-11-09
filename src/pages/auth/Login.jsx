@@ -91,7 +91,7 @@ const Login = () => {
               required
             />
             <div
-              className="absolute right-3 top-9 cursor-pointer text-gray-500"
+              className="absolute right-3 top-9 z-10 cursor-pointer text-gray-500"
               onClick={() => setShowPass(!showPass)}
             >
               {showPass ? <FaEyeSlash /> : <FaEye />}

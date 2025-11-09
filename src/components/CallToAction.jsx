@@ -14,7 +14,7 @@ const CallToAction = () => {
     >
       <div className="absolute inset-0 bg-black/50"></div>
 
-      <div className="relative max-w-6xl mx-auto text-center text-gray-200 flex flex-col items-center gap-6 h-[300px]">
+      <div className="relative max-w-6xl mx-auto text-center text-gray-200 flex flex-col items-center gap-6 h-[220px]">
         <h2 className="text-4xl md:title font-bold">
           Ready to Drive Your Dream Car?
         </h2>
