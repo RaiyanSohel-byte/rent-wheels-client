@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="bg-gradient-to-r from-base-100 to-accent/7">
       <nav>
         <Navbar />
       </nav>
