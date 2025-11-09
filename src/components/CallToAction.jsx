@@ -5,11 +5,16 @@ const CallToAction = () => {
   return (
     <section
       className="relative bg-cover bg-center bg-no-repeat py-20 px-6 rounded-3xl overflow-hidden max-w-[1200px] mx-auto mt-10 mb-20"
-      style={{ backgroundImage: `url(${ctaBg})` }}
+      style={{
+        backgroundImage: `url(${ctaBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       <div className="absolute inset-0 bg-black/50"></div>
 
-      <div className="relative max-w-6xl mx-auto text-center text-gray-200 flex flex-col items-center gap-6">
+      <div className="relative max-w-6xl mx-auto text-center text-gray-200 flex flex-col items-center gap-6 h-[300px]">
         <h2 className="text-4xl md:title font-bold">
           Ready to Drive Your Dream Car?
         </h2>
