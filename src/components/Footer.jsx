@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <footer className="relative w-full mx-auto bg-base-200/50 backdrop-blur-xl border-t border-primary/20 text-base-content py-10 px-6">
       <div className="lg:flex justify-between">
-        <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="flex flex-col items-start space-y-3">
             <img
               src={theme === "dark" ? logoDark : logoLight}

@@ -200,7 +200,7 @@ const Navbar = () => {
                       <span className="font-semibold text-primary">
                         {user.displayName}
                       </span>
-                      <span className="text-sm text-gray-400">
+                      <span className="text-xs text-gray-400">
                         {user.email}
                       </span>
                     </div>

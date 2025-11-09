@@ -43,3 +43,8 @@ body {
 .subtitle {
   @apply text-2xl font-bold text-primary;
 }
+/* * {
+  outline: 1px solid red; 
+  margin: 0;
+  padding: 0;
+} */

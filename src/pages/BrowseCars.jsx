@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import useAxios from "../hooks/useAxios";
 import Loader from "../components/Loader";
 import CarCard from "../components/CarCard";
+import useAuth from "../hooks/useAuth";
 
 const containerVariants = {
   hidden: {},
@@ -21,22 +22,13 @@ const cardVariants = {
 const BrowseCars = () => {
   const axiosInstance = useAxios();
   const [cars, setCars] = useState([]);
-  const [loading, setLoading] = useState(true);
-
+  const { user, setLoading, loading } = useAuth();
   useEffect(() => {
-    const fetchCars = async () => {
-      try {
-        const { data } = await axiosInstance.get("/cars");
-        setCars(data);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCars();
-  }, [axiosInstance]);
+    axiosInstance.get(`/cars`).then((data) => {
+      setLoading(false);
+      setCars(data.data);
+    });
+  }, [axiosInstance, user, setLoading]);
 
   if (loading) return <Loader />;
 

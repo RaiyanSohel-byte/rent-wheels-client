@@ -12,6 +12,8 @@ import TermsAndConditions from "../pages/TermsAndConditions";
 import AddCar from "../pages/AddCar";
 import CarDetails from "../pages/CarDetails";
 import BrowseCars from "../pages/BrowseCars";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import MyListings from "../pages/MyListings";
 
 export const router = createBrowserRouter([
   {
@@ -24,11 +26,27 @@ export const router = createBrowserRouter([
       },
       {
         path: "/addCar",
-        element: <AddCar />,
+        element: (
+          <PrivateRoute>
+            <AddCar />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/carDetails/:id",
-        element: <CarDetails />,
+        element: (
+          <PrivateRoute>
+            <CarDetails />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/myListings",
+        element: (
+          <PrivateRoute>
+            <MyListings />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/browseCars",

@@ -31,7 +31,7 @@ const About = () => {
 
   return (
     <section className="min-h-screen my-10 bg-gradient-to-br from-base-100/50 via-base-200/30 to-base-100/50 text-base-content py-20 px-6 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 relative z-10">
+      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16 relative z-10">
         <motion.div
           className="w-full md:w-1/2"
           initial={{ opacity: 0, x: -100 }}

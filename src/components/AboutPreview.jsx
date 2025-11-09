@@ -4,7 +4,7 @@ import aboutImage from "../assets/aboutImage.jpg";
 
 const AboutPreview = () => {
   return (
-    <section className="max-w-[1200px] mx-auto py-20 px-6 flex flex-col md:flex-row items-center gap-10">
+    <section className="max-w-[1200px] mx-auto py-20 px-6 flex flex-col lg:flex-row items-center gap-10">
       <motion.div
         className="md:w-1/2 w-full"
         initial={{ opacity: 0, x: -50 }}

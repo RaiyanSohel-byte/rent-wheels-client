@@ -21,7 +21,9 @@ const CarCard = ({ car }) => {
 
       <div className="p-5 flex flex-col gap-3">
         <h3 className="text-2xl font-bold text-base-content">{car.carName}</h3>
-        <p className="text-gray-500 text-sm line-clamp-2">{car.description}</p>
+        <p className="text-gray-500 text-sm h-[45px] line-clamp-2">
+          {car.description}
+        </p>
 
         <div className="flex h-[30px] justify-between items-center mt-3 text-sm">
           <span className="flex items-center gap-1 text-gray-500">

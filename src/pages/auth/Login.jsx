@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
   const { googleLogin } = useAuth();
-
+  const location = useLocation();
+  const navigate = useNavigate();
   const handleGoogleLogin = () => {
     googleLogin()
       .then(() => {
         toast.success("Login Success");
+        navigate(location?.state || "/");
       })
       .catch((error) => {
         toast.error(error.code);
