@@ -2,13 +2,25 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import logoLight from "../assets/logoLight.png";
 import logoDark from "../assets/logoDark.png";
+import footerBg from "../assets/foterBg.jpg";
+import footerBgLight from "../assets/footerBgLight.png";
 import useTheme from "../hooks/useTheme";
 import { Link } from "react-router";
 
 const Footer = () => {
   const { theme } = useTheme();
   return (
-    <footer className="relative w-full mx-auto bg-base-200/50 backdrop-blur-xl border-t border-primary/20 text-base-content py-10 px-6">
+    <footer
+      className="relative w-full mx-auto border-t border-primary/20 text-base-content py-10 px-6"
+      style={{
+        backgroundImage: `url(${theme === "dark" ? footerBg : footerBgLight})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {" "}
+      {theme === "dark" && <div className="absolute inset-0 bg-black/10"></div>}
       <div className="lg:flex justify-between">
         <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="flex flex-col items-start space-y-3">
@@ -115,7 +127,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
+          {/* <div>
             <h3 className="font-semibold text-lg mb-3">Follow Us</h3>
             <div className="flex space-x-4">
               <a
@@ -143,11 +155,30 @@ const Footer = () => {
                 <FaLinkedinIn />
               </a>
             </div>
+          </div> */}
+          <div>
+            <h3 className="font-bold text-lg mb-4 ">Follow Us</h3>
+            <div className="flex space-x-4 text-xl">
+              {[FaFacebookF, FaXTwitter, FaInstagram, FaLinkedinIn].map(
+                (Icon, idx) => (
+                  <a
+                    key={idx}
+                    href="#"
+                    className={
+                      theme === "dark"
+                        ? "p-3 rounded-full bg-gray-200 hover:bg-accent transition-colors duration-200 text-white"
+                        : "p-3 rounded-full bg-gray-50 border border-gray-300 hover:bg-accent transition-colors duration-200 text-gray-800"
+                    }
+                  >
+                    <Icon color="black" />
+                  </a>
+                )
+              )}
+            </div>
           </div>
         </div>
       </div>
-
-      <div className="mt-10 border-t border-primary/10 pt-5 text-center text-gray-500 text-sm">
+      <div className="mt-10 border-t border-primary/10 pt-5 text-center text-primary text-sm">
         &copy; {new Date().getFullYear()} RentWheels. All Rights Reserved.{" "}
         <br />
         Made with ❤️ and coded by Raiyan Sohel.

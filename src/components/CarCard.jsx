@@ -6,7 +6,7 @@ const CarCard = ({ car }) => {
   return (
     <div
       whileHover={{ scale: 1.03, boxShadow: "0 15px 30px rgba(0,0,0,0.15)" }}
-      className="bg-base-100 lg:w-[350px] mx-auto h-[480px] border border-base-200 rounded-2xl shadow-md overflow-hidden transition-all duration-300"
+      className="bg-base-100 lg:w-[370px] mx-auto h-[510px] border border-base-200 rounded-2xl shadow-md overflow-hidden transition-all duration-300"
     >
       <div className="relative">
         <img
@@ -20,7 +20,18 @@ const CarCard = ({ car }) => {
       </div>
 
       <div className="p-5 flex flex-col gap-3">
-        <h3 className="text-2xl font-bold text-base-content">{car.carName}</h3>
+        <h3 className="text-2xl font-bold text-base-content h-[60px]">
+          {car.carName}{" "}
+          <span
+            className={`${
+              car.status === "available"
+                ? "badge badge-success badge-sm font-bold badge-outline badge-soft rounded-full ml-1"
+                : "badge badge-error badge-sm font-bold badge-outline badge-soft rounded-full ml-1"
+            }`}
+          >
+            {car.status.toUpperCase()}
+          </span>
+        </h3>
         <p className="text-gray-500 text-sm h-[45px] line-clamp-2">
           {car.description}
         </p>

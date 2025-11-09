@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 const Register = () => {
   const [showPass, setShowPass] = useState(false);
   const { googleLogin, createUser, updateUser, setUser } = useAuth();
-
+  const navigate = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
@@ -23,16 +23,16 @@ const Register = () => {
       return;
     }
 
-    console.log({ name, email, photo, password });
     createUser(email, password).then((result) => {
       updateUser({ displayName: name, photoURL: photo })
         .then(() => {
           setUser({ ...result.user, displayName: name, photoURL: photo });
+          toast.success("Registration Successful");
+          navigate("/");
         })
         .catch((error) => {
           toast.error(error.code);
         });
-      toast.success("Registration Successful");
     });
   };
   const handleGoogleLogin = () => {

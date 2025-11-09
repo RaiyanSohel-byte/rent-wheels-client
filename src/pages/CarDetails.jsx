@@ -5,12 +5,15 @@ import useAuth from "../hooks/useAuth";
 import Loader from "../components/Loader";
 import { FaCarSide, FaEnvelope, FaMapMarkerAlt, FaUser } from "react-icons/fa";
 import { motion } from "framer-motion";
-
+import Lottie from "lottie-react";
+import bookingAnimation from "../assets/bookingAnimation.json";
 const CarDetails = () => {
   const { id } = useParams();
   const axiosInstance = useAxios();
   const { setLoading } = useAuth();
   const [car, setCar] = useState(null);
+  const [isBooking, setIsBooking] = useState(false);
+  const [showLottie, setShowLottie] = useState(false);
 
   useEffect(() => {
     axiosInstance.get(`/cars/${id}`).then((data) => {
@@ -19,9 +22,17 @@ const CarDetails = () => {
     });
   }, [axiosInstance, id, setLoading]);
 
-  if (!car) {
-    return <Loader />;
-  }
+  if (!car) return <Loader />;
+
+  const handleBooking = () => {
+    setShowLottie(true);
+    setIsBooking(true);
+
+    setTimeout(() => {
+      setIsBooking(false);
+      setShowLottie(false);
+    }, 3000);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -43,18 +54,21 @@ const CarDetails = () => {
 
   return (
     <motion.section
-      className="max-w-6xl mx-auto px-6 py-16 my-10"
+      className="max-w-6xl mx-auto px-6 py-16 my-10 relative"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
+      {showLottie && (
+        <div className="absolute inset-0 flex justify-center items-center z-50 p-4">
+          <div className="w-20 h-20 sm:w-56 sm:h-56 md:w-64 md:h-64">
+            <Lottie animationData={bookingAnimation} loop={false} />
+          </div>
+        </div>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <motion.div
-          className="relative"
-          variants={cardVariants}
-          initial="hidden"
-          animate="visible"
-        >
+        <motion.div className="relative" variants={cardVariants}>
           <img
             src={car.imageUrl}
             alt={car.carName}
@@ -68,8 +82,6 @@ const CarDetails = () => {
         <motion.div
           className="flex flex-col justify-between"
           variants={cardVariants}
-          initial="hidden"
-          animate="visible"
         >
           <div>
             <motion.h2
@@ -124,8 +136,12 @@ const CarDetails = () => {
               transition={{ duration: 0.6 }}
             >
               {car.status === "available" ? (
-                <button className="btn bg-primary text-secondary hover:bg-accent transition-all">
-                  Book Now
+                <button
+                  onClick={handleBooking}
+                  disabled={isBooking}
+                  className="btn bg-primary text-secondary hover:bg-accent transition-all"
+                >
+                  {isBooking ? "Booking..." : "Book Now"}
                 </button>
               ) : (
                 <button

@@ -7,9 +7,22 @@ import { toast } from "react-toastify";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
-  const { googleLogin } = useAuth();
+  const { googleLogin, loginUser } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    loginUser(email, password)
+      .then(() => {
+        toast.success("Login Successful");
+        navigate(location?.state || "/");
+      })
+      .catch((error) => {
+        toast.error(error.code);
+      });
+  };
   const handleGoogleLogin = () => {
     googleLogin()
       .then(() => {
@@ -55,7 +68,7 @@ const Login = () => {
           Welcome Back
         </motion.h2>
 
-        <motion.form className="space-y-5">
+        <motion.form onSubmit={(e) => handleLogin(e)} className="space-y-5">
           <motion.div
             className="form-control"
             variants={itemVariants}

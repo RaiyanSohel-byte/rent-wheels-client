@@ -93,7 +93,9 @@ const AddCar = () => {
 
           {/* Rent Price */}
           <div>
-            <label className="label font-semibold">Rent Price (Per Day)</label>
+            <label className="label font-semibold">
+              Rent Price ৳ (Per Day)
+            </label>
             <input
               type="number"
               name="rentPrice"

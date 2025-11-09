@@ -41,7 +41,7 @@ const About = () => {
           <img
             src={aboutImage}
             alt="About RentWheels"
-            className="rounded-3xl shadow-2xl w-full object-cover"
+            className="rounded-3xl shadow-2xl w-full lg:h-[500px] object-cover"
           />
         </motion.div>
 
