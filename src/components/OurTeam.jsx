@@ -30,7 +30,7 @@ const OurTeam = () => {
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className={`flex flex-col border border-primary items-center bg-base-200/60 backdrop-blur-md rounded-2xl shadow-lg p-5 min-w-[200px] hover:scale-105 transition-transform cursor-pointer ${
+                className={`flex flex-col border border-primary/30 items-center bg-base-200/60 backdrop-blur-md rounded-2xl shadow-lg p-5 min-w-[200px] hover:scale-105 transition-transform cursor-pointer ${
                   index === 0 ? "ml-5" : ""
                 }`}
               >

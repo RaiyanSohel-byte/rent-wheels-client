@@ -40,3 +40,6 @@ body {
 .title {
   @apply text-4xl md:text-5xl font-bold text-primary leading-tight;
 }
+.subtitle {
+  @apply text-2xl font-bold text-primary;
+}

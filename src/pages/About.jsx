@@ -3,6 +3,7 @@ import aboutImage from "../assets/aboutImage.jpg";
 import { motion } from "framer-motion";
 import { FaCar, FaHandshake, FaDollarSign, FaClock } from "react-icons/fa";
 import OurTeam from "../components/OurTeam";
+import Timeline from "../components/Timeline";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -11,6 +12,13 @@ const cardVariants = {
     y: 0,
     transition: { delay: i * 0.2, type: "spring", stiffness: 120 },
   }),
+};
+
+const colorClasses = {
+  primary: "bg-primary/20 text-primary",
+  accent: "bg-accent/20 text-accent",
+  success: "bg-success/20 text-success",
+  warning: "bg-warning/20 text-warning",
 };
 
 const About = () => {
@@ -68,22 +76,22 @@ const About = () => {
                   scale: 1.05,
                   boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
                 }}
-                className={`flex items-center gap-4 h-20 px-5 bg-${feature.color}/20 text-${feature.color} rounded-2xl font-semibold shadow-md transition-all cursor-pointer relative overflow-hidden`}
+                className={`flex items-center gap-4 h-20 px-5 rounded-2xl font-semibold shadow-md transition-all cursor-pointer relative overflow-hidden ${
+                  colorClasses[feature.color]
+                }`}
               >
                 <div className="text-2xl">{feature.icon}</div>
                 <div className="text-lg">{feature.text}</div>
-
                 <div className="absolute -top-3 -right-3 w-20 h-20 bg-gradient-to-tr from-white/20 to-transparent rounded-full pointer-events-none"></div>
               </motion.div>
             ))}
           </div>
         </motion.div>
       </div>
-
-      <div className="absolute top-0 left-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -z-10"></div>
-
       <div>
+        <Timeline />
+      </div>
+      <div className="mt-24">
         <OurTeam />
       </div>
     </section>
