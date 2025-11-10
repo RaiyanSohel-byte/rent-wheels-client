@@ -1,19 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import useAxios from "../hooks/useAxios";
 import useAuth from "../hooks/useAuth";
 import Loader from "../components/Loader";
-import { FaCarSide, FaEnvelope, FaMapMarkerAlt, FaUser } from "react-icons/fa";
+import {
+  FaArrowLeft,
+  FaCarSide,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaUser,
+} from "react-icons/fa";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import bookingAnimation from "../assets/bookingAnimation.json";
 const CarDetails = () => {
   const { id } = useParams();
   const axiosInstance = useAxios();
-  const { setLoading } = useAuth();
+  const { user, setLoading } = useAuth();
   const [car, setCar] = useState(null);
   const [isBooking, setIsBooking] = useState(false);
   const [showLottie, setShowLottie] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axiosInstance.get(`/cars/${id}`).then((data) => {
@@ -25,15 +32,33 @@ const CarDetails = () => {
   if (!car) return <Loader />;
 
   const handleBooking = () => {
-    setShowLottie(true);
-    setIsBooking(true);
-
-    setTimeout(() => {
-      setIsBooking(false);
-      setShowLottie(false);
-    }, 3000);
+    const bookingData = {
+      ...car,
+      status: "unavailable",
+      bookedBy: {
+        userName: user.displayName,
+        userEmail: user.email,
+        bookedAt: new Date().toLocaleDateString(),
+      },
+    };
+    axiosInstance.post("/bookings", bookingData).then((data) => {
+      if (data.data.insertedId) {
+        axiosInstance
+          .patch(`/cars/${car._id}`, { status: "unavailable" })
+          .then((data) => {
+            console.log(data.data);
+            setCar({ ...car, status: "unavailable" });
+          });
+        setShowLottie(true);
+        setIsBooking(true);
+        setTimeout(() => {
+          setIsBooking(false);
+          setShowLottie(false);
+        }, 3000);
+      }
+    });
   };
-
+  console.log(car.provider_image);
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -66,7 +91,14 @@ const CarDetails = () => {
           </div>
         </div>
       )}
-
+      <motion.button
+        onClick={() => navigate("/browseCars")}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="flex items-center gap-2 text-md sm:text-primary font-medium text-secondary mb-6 cursor-pointer"
+      >
+        <FaArrowLeft /> Browse Other Cars
+      </motion.button>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <motion.div className="relative" variants={cardVariants}>
           <img
@@ -135,7 +167,15 @@ const CarDetails = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              {car.status === "available" ? (
+              {car.provider_email === user.email ? (
+                <div className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full font-semibold text-sm shadow-sm">
+                  <FaUser className="text-primary" />
+                  Owned by You -{" "}
+                  <Link to="/myListings" className="underline">
+                    Manage Availability
+                  </Link>
+                </div>
+              ) : car.status === "available" ? (
                 <button
                   onClick={handleBooking}
                   disabled={isBooking}
@@ -144,12 +184,9 @@ const CarDetails = () => {
                   {isBooking ? "Booking..." : "Book Now"}
                 </button>
               ) : (
-                <button
-                  disabled
-                  className="btn text-primary hover:bg-accent transition-all cursor-not-allowed opacity-70"
-                >
-                  Booked
-                </button>
+                <h3 className="text-error font-bold text-xl">
+                  Already Booked!
+                </h3>
               )}
             </motion.div>
           </div>

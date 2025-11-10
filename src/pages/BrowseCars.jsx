@@ -23,7 +23,9 @@ const BrowseCars = () => {
   const axiosInstance = useAxios();
   const [cars, setCars] = useState([]);
   const { user, setLoading, loading } = useAuth();
+
   useEffect(() => {
+    setLoading(true);
     axiosInstance.get(`/cars`).then((data) => {
       setLoading(false);
       setCars(data.data);

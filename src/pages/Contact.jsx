@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaClock } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 const Contact = () => {
@@ -9,7 +9,7 @@ const Contact = () => {
       icon: <FaMapMarkerAlt />,
       title: "Our Office",
       details: "House 32, Road 10, Dhanmondi, Dhaka, Bangladesh",
-      color: "primary",
+      color: "accent",
     },
     {
       icon: <FaPhone />,
@@ -21,22 +21,30 @@ const Contact = () => {
       icon: <FaEnvelope />,
       title: "Email",
       details: "support@rentwheels.com",
-      color: "success",
+      color: "accent",
+    },
+    {
+      icon: <FaClock />,
+      title: "Working Hours",
+      details: "Sat - Thu: 9:00 AM - 10:00 PM",
+      color: "accent",
     },
   ];
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    toast.success("Message Sent!");
+    toast.success("Message Sent Successfully!");
     e.target.reset();
   };
+
   return (
-    <section className="min-h-screen bg-gradient-to-br from-base-100 via-base-200/50 to-base-100 text-base-content py-20 px-6 relative overflow-hidden">
+    <section className="min-h-screen bg-gradient-to-br from-base-100 via-base-200/50 to-base-100 text-base-content py-20 px-6 my-10 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl -z-10"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -z-10"></div>
 
-      <div className="max-w-[1200px] my-10 mx-auto flex flex-col lg:flex-row items-center gap-16 relative z-10">
+      <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row items-center gap-16 relative z-10">
         <motion.div
-          className="w-full md:w-1/2 space-y-10"
+          className="w-full lg:w-1/2 space-y-10"
           initial={{ opacity: 0, x: -80 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -64,11 +72,23 @@ const Contact = () => {
               </motion.div>
             ))}
           </div>
+
+          <div className="mt-10 text-center lg:text-left">
+            <p className="text-gray-500 mb-3">Need quick help?</p>
+            <a
+              href="https://wa.me/8801790839334"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-accent btn-wide text-white"
+            >
+              Chat on WhatsApp
+            </a>
+          </div>
         </motion.div>
 
         <motion.form
           onSubmit={(e) => handleFormSubmit(e)}
-          className="w-full md:w-1/2 bg-base-200/60 p-8 rounded-3xl shadow-2xl backdrop-blur-lg"
+          className="w-full lg:w-1/2 bg-base-200 p-8 rounded-3xl shadow-2xl backdrop-blur-lg"
           initial={{ opacity: 0, x: 80 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -120,6 +140,23 @@ const Contact = () => {
           </motion.button>
         </motion.form>
       </div>
+
+      <motion.div
+        className="w-full max-w-[1200px] mx-auto mt-16 h-72 rounded-2xl overflow-hidden shadow-2xl"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <iframe
+          title="RentWheels Office Map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.3203945376767!2d90.35755017493688!3d23.77160257865588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c1a9a4d01ce9%3A0xc31d0fb3cd1a7d7d!2sNHA%20Garden%20City!5e0!3m2!1sen!2sbd!4v1762759327095!5m2!1sen!2sbd"
+          width="100%"
+          height="100%"
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </motion.div>
     </section>
   );
 };

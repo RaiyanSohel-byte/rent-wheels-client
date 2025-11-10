@@ -25,7 +25,7 @@ const Navbar = () => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
+      confirmButtonColor: "#22C55E",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, Log Out!",
       theme: `${theme === "dark" ? "dark" : "light"}`,
@@ -41,6 +41,7 @@ const Navbar = () => {
           text: "You have been logged out.",
           icon: "success",
           theme: `${theme === "dark" ? "dark" : "light"}`,
+          confirmButtonColor: "#22C55E",
         });
       }
     });

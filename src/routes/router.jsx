@@ -14,6 +14,7 @@ import CarDetails from "../pages/CarDetails";
 import BrowseCars from "../pages/BrowseCars";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import MyListings from "../pages/MyListings";
+import MyBookings from "../pages/MyBookings";
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +52,14 @@ export const router = createBrowserRouter([
       {
         path: "/browseCars",
         element: <BrowseCars />,
+      },
+      {
+        path: "/myBookings",
+        element: (
+          <PrivateRoute>
+            <MyBookings />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/about",

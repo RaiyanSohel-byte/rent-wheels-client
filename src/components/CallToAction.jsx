@@ -4,7 +4,7 @@ import ctaBg from "../assets/ctaBG.jpg";
 const CallToAction = () => {
   return (
     <section
-      className="relative bg-cover bg-center bg-no-repeat py-20 px-6 rounded-3xl overflow-hidden max-w-[1200px] mx-auto mt-10 mb-20"
+      className="relative bg-cover bg-center bg-no-repeat py-20 px-6 lg:rounded-3xl overflow-hidden max-w-[1200px] mx-auto mt-10 mb-20"
       style={{
         backgroundImage: `url(${ctaBg})`,
         backgroundSize: "cover",

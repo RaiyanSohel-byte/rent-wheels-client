@@ -13,15 +13,19 @@ const MyListings = () => {
   const [editingCar, setEditingCar] = useState(null);
   const { user, setLoading, loading } = useAuth();
   const [cars, setCars] = useState([]);
+  const [listingsLoading, setListingsLoading] = useState(false);
   const { theme } = useTheme();
   const carModalRef = useRef(null);
   useEffect(() => {
+    setListingsLoading(true);
     axiosInstance.get(`/cars?provider_email=${user.email}`).then((data) => {
       setCars(data.data);
       setLoading(false);
+      setListingsLoading(false);
     });
   }, [axiosInstance, user, setLoading]);
 
+  if (listingsLoading) return <Loader />;
   if (loading) return <Loader />;
 
   const handleDelete = (id) => {
@@ -30,7 +34,7 @@ const MyListings = () => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#1eb355",
+      confirmButtonColor: "#22C55E",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
       theme: `${theme === "dark" ? "dark" : "light"}`,
@@ -46,7 +50,7 @@ const MyListings = () => {
           title: "Deleted!",
           text: "Your listing has been deleted.",
           icon: "success",
-          confirmButtonColor: "#1eb355",
+          confirmButtonColor: "#22C55E",
           theme: `${theme === "dark" ? "dark" : "light"}`,
         });
       }

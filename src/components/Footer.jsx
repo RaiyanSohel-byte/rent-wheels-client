@@ -19,8 +19,6 @@ const Footer = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {" "}
-      {theme === "dark" && <div className="absolute inset-0 bg-black/10"></div>}
       <div className="lg:flex justify-between">
         <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="flex flex-col items-start space-y-3">
@@ -127,35 +125,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* <div>
-            <h3 className="font-semibold text-lg mb-3">Follow Us</h3>
-            <div className="flex space-x-4">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-accent transition-colors"
-              >
-                <FaFacebookF />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-accent transition-colors"
-              >
-                <FaXTwitter />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-accent transition-colors"
-              >
-                <FaInstagram />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-accent transition-colors"
-              >
-                <FaLinkedinIn />
-              </a>
-            </div>
-          </div> */}
           <div>
             <h3 className="font-bold text-lg mb-4 ">Follow Us</h3>
             <div className="flex space-x-4 text-xl">
