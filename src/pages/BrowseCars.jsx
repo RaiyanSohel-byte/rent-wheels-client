@@ -68,7 +68,7 @@ const BrowseCars = () => {
               <button
                 type="button"
                 onClick={handleClear}
-                className="btn btn-primary btn-sm lg:btn-md"
+                className="btn btn-primary text-secondary btn-sm lg:btn-md"
               >
                 Clear Search
               </button>
@@ -88,9 +88,14 @@ const BrowseCars = () => {
           animate="visible"
         >
           {cars.map((car) => (
-            <div key={car._id} variants={cardVariants}>
+            <motion.div
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+              key={car._id}
+            >
               <CarCard car={car} />
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       )}

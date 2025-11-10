@@ -2,14 +2,22 @@ import React, { useEffect, useState } from "react";
 import useAxios from "../hooks/useAxios";
 import { motion } from "framer-motion";
 import CarCard from "./CarCard";
+import useAuth from "../hooks/useAuth";
+import Loader from "./Loader";
 const LatestCars = () => {
   const axiosInstance = useAxios();
   const [cars, setCars] = useState([]);
+  const { loading, setLoading } = useAuth();
   useEffect(() => {
+    setLoading(true);
     axiosInstance.get("/latestCars").then((data) => {
       setCars(data.data);
+      setLoading(false);
     });
-  }, [axiosInstance]);
+  }, [axiosInstance, setLoading]);
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <section className="py-20 px-6 max-w-6xl mx-auto">
       <motion.div

@@ -15,6 +15,7 @@ import BrowseCars from "../pages/BrowseCars";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import MyListings from "../pages/MyListings";
 import MyBookings from "../pages/MyBookings";
+import Error404 from "../pages/Error404";
 
 export const router = createBrowserRouter([
   {
@@ -90,5 +91,9 @@ export const router = createBrowserRouter([
         element: <TermsAndConditions />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <Error404 />,
   },
 ]);

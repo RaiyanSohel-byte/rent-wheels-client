@@ -13,6 +13,7 @@ import {
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import bookingAnimation from "../assets/bookingAnimation.json";
+import { toast } from "react-toastify";
 const CarDetails = () => {
   const { id } = useParams();
   const axiosInstance = useAxios();
@@ -48,6 +49,7 @@ const CarDetails = () => {
           .then((data) => {
             console.log(data.data);
             setCar({ ...car, status: "unavailable" });
+            toast.success("Booked!");
           });
         setShowLottie(true);
         setIsBooking(true);

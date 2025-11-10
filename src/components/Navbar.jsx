@@ -191,7 +191,7 @@ const Navbar = () => {
                 className="menu dropdown-content bg-base-200 rounded-xl z-50 mt-3 w-64 p-4 shadow-lg border border-primary"
               >
                 <li className="mb-2">
-                  <div className="flex items-center gap-3 p-2 bg-base-100 rounded-lg">
+                  <div className="flex items-center gap-1 p-2 bg-base-100 rounded-lg">
                     <img
                       src={user.photoURL}
                       alt="User Avatar"
