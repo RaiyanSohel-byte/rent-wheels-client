@@ -4,6 +4,7 @@ import useAuth from "../hooks/useAuth";
 import Loader from "../components/Loader";
 import { motion } from "framer-motion";
 import { FaCarSide, FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
+import EmptyList from "../components/EmptyList";
 
 const rowVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -23,7 +24,7 @@ const MyBookings = () => {
   useEffect(() => {
     setBookingLoading(true);
     axiosInstance
-      .get(`/bookings?userEmail=${user.email}`)
+      .get(`/bookings?email=${user.email}`)
       .then((res) => {
         setBookings(res.data);
         setLoading(false);
@@ -39,9 +40,7 @@ const MyBookings = () => {
       <h2 className="title mb-8 text-center">My Bookings</h2>
 
       {bookings.length === 0 ? (
-        <p className="text-center text-gray-500">
-          You have not booked any cars yet.
-        </p>
+        <EmptyList pageText="No Bookings Done Yet" />
       ) : (
         <motion.div
           className="overflow-x-auto"

@@ -7,6 +7,7 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useTheme from "../hooks/useTheme";
 import { toast } from "react-toastify";
+import EmptyList from "../components/EmptyList";
 
 const MyListings = () => {
   const axiosInstance = useAxios();
@@ -107,7 +108,7 @@ const MyListings = () => {
       <h2 className="title mb-8 text-center">My Listings</h2>
 
       {cars.length === 0 ? (
-        <p className="text-center text-gray-500">You have no listings yet.</p>
+        <EmptyList pageText="No Listings Added Yet" />
       ) : (
         <motion.div
           className="overflow-x-auto"

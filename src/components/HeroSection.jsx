@@ -52,7 +52,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-[100vh] overflow-hidden">
+    <section className="relative w-full h-[80vh] lg:h-[100vh] overflow-hidden">
       {swiperReady && (
         <Swiper
           modules={[Navigation, EffectFade, Pagination]}
@@ -118,7 +118,7 @@ const HeroSection = () => {
         <FaChevronRight className="text-2xl md:text-3xl" />
       </button>
 
-      <div className="absolute bottom-40 left-1/2 transform -translate-x-1/2 w-[90%] max-w-xl z-30">
+      <div className="absolute bottom-18 md:bottom-40 left-1/2 transform -translate-x-1/2 w-[90%] max-w-xl z-30">
         <form onSubmit={handleSubmit} className="w-full">
           <div className="flex items-center bg-gray-200 rounded-md  shadow-lg transition-all duration-300 focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
             <input
