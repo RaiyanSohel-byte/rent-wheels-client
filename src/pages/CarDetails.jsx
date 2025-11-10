@@ -117,12 +117,21 @@ const CarDetails = () => {
         >
           <div>
             <motion.h2
-              className="text-4xl font-bold text-primary mb-3"
+              className="text-4xl font-bold text-primary mb-3 flex items-center gap-2"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              {car.carName}
+              {car.carName}{" "}
+              <span
+                className={`${
+                  car.status === "available"
+                    ? "badge badge-success  font-bold badge-outline badge-soft rounded-full ml-1"
+                    : "badge badge-error  font-bold badge-outline badge-soft rounded-full ml-1"
+                }`}
+              >
+                {car.status === "available" ? "Available" : "Booked"}
+              </span>
             </motion.h2>
             <motion.p
               className="text-gray-500 mb-4"
@@ -168,10 +177,10 @@ const CarDetails = () => {
               transition={{ duration: 0.6 }}
             >
               {car.provider_email === user.email ? (
-                <div className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full font-semibold text-sm shadow-sm">
+                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full font-semibold text-sm shadow-sm">
                   <FaUser className="text-primary" />
                   Owned by You -{" "}
-                  <Link to="/myListings" className="underline">
+                  <Link to="/myListings" className="underline text-accent">
                     Manage Availability
                   </Link>
                 </div>

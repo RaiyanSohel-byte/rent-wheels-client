@@ -23,17 +23,21 @@ const Register = () => {
       return;
     }
 
-    createUser(email, password).then((result) => {
-      updateUser({ displayName: name, photoURL: photo })
-        .then(() => {
-          setUser({ ...result.user, displayName: name, photoURL: photo });
-          toast.success("Registration Successful");
-          navigate("/");
-        })
-        .catch((error) => {
-          toast.error(error.code);
-        });
-    });
+    createUser(email, password)
+      .then((result) => {
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...result.user, displayName: name, photoURL: photo });
+            toast.success("Registration Successful");
+            navigate("/");
+          })
+          .catch((error) => {
+            toast.error(error.code);
+          });
+      })
+      .catch((error) => {
+        toast.error(error.code);
+      });
   };
   const handleGoogleLogin = () => {
     googleLogin()
