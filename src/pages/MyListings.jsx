@@ -108,7 +108,11 @@ const MyListings = () => {
       <h2 className="title mb-8 text-center">My Listings</h2>
 
       {cars.length === 0 ? (
-        <EmptyList pageText="No Listings Added Yet" />
+        <EmptyList
+          pageText="No Listings Added Yet"
+          btnText={"Browse"}
+          toRoute={"/browseCars"}
+        />
       ) : (
         <motion.div
           className="overflow-x-auto"

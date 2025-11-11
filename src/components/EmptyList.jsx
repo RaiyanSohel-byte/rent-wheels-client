@@ -2,7 +2,7 @@ import React from "react";
 import empty from "../assets/emptyList.json";
 import Lottie from "lottie-react";
 import { Link } from "react-router";
-const EmptyList = ({ pageText }) => {
+const EmptyList = ({ pageText, btnText, toRoute, handleClear }) => {
   return (
     <div>
       <Lottie
@@ -12,8 +12,12 @@ const EmptyList = ({ pageText }) => {
       ></Lottie>
       <h3 className="text-center title text-error mb-8">{pageText}</h3>
       <div className="flex justify-center">
-        <Link to="/browseCars" className="btn text-white btn-error">
-          Browse Cars
+        <Link
+          onClick={btnText === "Clear Search" && handleClear}
+          to={toRoute}
+          className="btn text-white btn-error"
+        >
+          {btnText}
         </Link>
       </div>
     </div>

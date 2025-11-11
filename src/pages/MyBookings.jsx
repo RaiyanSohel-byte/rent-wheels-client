@@ -80,7 +80,11 @@ const MyBookings = () => {
       <h2 className="title mb-8 text-center">My Bookings</h2>
 
       {bookings.length === 0 ? (
-        <EmptyList pageText="No Bookings Done Yet" />
+        <EmptyList
+          pageText="No Bookings Done Yet"
+          btnText={"Browse"}
+          toRoute={"/browseCars"}
+        />
       ) : (
         <motion.div
           className="overflow-x-auto"

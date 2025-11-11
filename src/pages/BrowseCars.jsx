@@ -5,6 +5,7 @@ import Loader from "../components/Loader";
 import CarCard from "../components/CarCard";
 import useAuth from "../hooks/useAuth";
 import useSearch from "../hooks/useSearch";
+import EmptyList from "../components/EmptyList";
 
 const containerVariants = {
   hidden: {},
@@ -77,9 +78,12 @@ const BrowseCars = () => {
         </div>
       </form>
       {cars.length === 0 ? (
-        <p className="text-center text-gray-500">
-          No cars available at the moment.
-        </p>
+        <EmptyList
+          pageText="No cars found"
+          btnText={"Clear Search"}
+          toRoute={"/browseCars"}
+          handleClear={handleClear}
+        />
       ) : (
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
