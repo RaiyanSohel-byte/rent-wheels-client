@@ -45,8 +45,9 @@ const MyBookings = () => {
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#22C55E",
+      cancelButtonText: "No!",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Yes!",
       theme: `${theme === "dark" ? "dark" : "light"}`,
     }).then((result) => {
       if (result.isConfirmed) {
@@ -58,10 +59,10 @@ const MyBookings = () => {
               .then((data) => {
                 if (data.data.modifiedCount) {
                   Swal.fire({
-                    title: "Deleted!",
+                    title: "Cancelled!",
                     text: "Your booking has been cancelled.",
-                    icon: "success",
-                    confirmButtonColor: "#22C55E",
+                    icon: "error",
+                    confirmButtonColor: "#d92500",
                     theme: `${theme === "dark" ? "dark" : "light"}`,
                   });
                 }
