@@ -46,7 +46,7 @@ const BrowseCars = () => {
   return (
     <section className="max-w-[1200px] mx-auto px-6 py-16 my-10">
       <h2 className="title mb-10 text-center">Browse Cars</h2>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <form className="mb-10" onSubmit={(e) => handleSubmit(e)}>
         <div className="lg:flex gap-4 items-center justify-center mb-8 rounded-md">
           <div className="flex items-center justify-center">
             <input

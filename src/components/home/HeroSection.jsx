@@ -5,11 +5,11 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import heroCar1 from "../assets/heroCar1.jpg";
-import heroCar2 from "../assets/heroCar2.jpg";
-import heroCar3 from "../assets/heroCar3.jpg";
+import heroCar1 from "../../assets/heroCar1.jpg";
+import heroCar2 from "../../assets/heroCar2.jpg";
+import heroCar3 from "../../assets/heroCar3.jpg";
 import { Link, useNavigate } from "react-router";
-import useSearch from "../hooks/useSearch";
+import useSearch from "../../hooks/useSearch";
 import { useRef, useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 

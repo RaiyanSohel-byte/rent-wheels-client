@@ -1,12 +1,14 @@
 import React from "react";
 import { FaMapMarkerAlt, FaTag } from "react-icons/fa";
 import { Link } from "react-router";
+import { motion } from "framer-motion";
+import "../styles/glowCard.css";
 
 const CarCard = ({ car }) => {
   return (
-    <div
+    <motion.div
       whileHover={{ scale: 1.03, boxShadow: "0 15px 30px rgba(0,0,0,0.15)" }}
-      className="bg-base-200 lg:w-[370px] mx-auto h-[535px] border border-base-200 rounded-2xl shadow-md overflow-hidden transition-all duration-300"
+      className="card-glow bg-base-200 lg:w-[370px] mx-auto h-[535px] border rounded-2xl shadow-md overflow-hidden transition-all duration-300"
     >
       <div className="relative">
         <img
@@ -32,7 +34,7 @@ const CarCard = ({ car }) => {
             {car.status === "available" ? "Available" : "Booked"}
           </span>
         </h3>
-        <p className="text-gray-500 text-sm  line-clamp-2">
+        <p className="text-gray-500 text-sm line-clamp-2">
           <span className="font-bold">Provider :</span> {car.providerName}
         </p>
         <p className="text-gray-500 text-sm h-[45px] line-clamp-2">
@@ -55,7 +57,7 @@ const CarCard = ({ car }) => {
           View Details
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

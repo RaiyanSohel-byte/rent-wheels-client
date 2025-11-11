@@ -26,8 +26,13 @@ const features = [
 
 const WhyRentWithUs = () => {
   return (
-    <section className="max-w-6xl mx-auto py-20 px-6 text-center">
-      <h2 className="title mb-12">Why Rent With Us</h2>
+    <section className="max-w-[1200px] mx-auto py-20 px-6 text-center">
+      <div className="mb-10 space-y-4">
+        <h2 className="title">Why Rent With Us</h2>
+        <p className="text-lg text-gray-500 leading-relaxed text-center">
+          Smart, simple, and seamless car rentals — built around you.
+        </p>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {features.map((feature, i) => (
           <motion.div

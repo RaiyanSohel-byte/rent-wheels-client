@@ -33,9 +33,11 @@ const CarDetails = () => {
   if (!car) return <Loader />;
 
   const handleBooking = () => {
+    const { _id, ...remainingCarData } = car;
     const bookingData = {
-      ...car,
+      ...remainingCarData,
       status: "unavailable",
+      carId: _id,
       bookedBy: {
         userName: user.displayName,
         userEmail: user.email,

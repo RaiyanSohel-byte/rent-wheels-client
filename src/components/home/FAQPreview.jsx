@@ -25,7 +25,7 @@ const FAQPreview = () => {
   };
 
   return (
-    <section className="max-w-6xl mx-auto py-20 px-6">
+    <section className="max-w-[1200px] mx-auto py-20 px-6">
       <h2 className="title text-center mb-12">Frequently Asked Questions</h2>
 
       <div className="space-y-4">

@@ -31,9 +31,13 @@ const CarBrandMarquee = () => {
   ];
 
   return (
-    <section className="py-12 mt-10">
-      <h2 className="title text-center mb-10">Trusted by</h2>
-
+    <section className="py-12 mt-10 max-w-[1200px] mx-auto">
+      <div className="mb-10 space-y-4">
+        <h2 className="title text-center">Our Partners</h2>
+        <p className="text-lg text-gray-500 leading-relaxed text-center">
+          Trusted collaborations driving our shared success
+        </p>
+      </div>
       <Marquee
         gradient={false}
         speed={40}

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router";
-import ctaBg from "../assets/ctaBG.jpg";
+import ctaBg from "../../assets/ctaBG.jpg";
 import { toast } from "react-toastify";
 const CallToAction = () => {
   const handleSubmit = (e) => {

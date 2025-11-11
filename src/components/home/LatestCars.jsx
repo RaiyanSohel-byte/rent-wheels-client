@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import useAxios from "../hooks/useAxios";
+import useAxios from "../../hooks/useAxios";
 import { motion } from "framer-motion";
-import CarCard from "./CarCard";
-import useAuth from "../hooks/useAuth";
-import Loader from "./Loader";
+import CarCard from "../CarCard";
+import useAuth from "../../hooks/useAuth";
+import Loader from "../Loader";
 import { Link } from "react-router";
 const LatestCars = () => {
   const axiosInstance = useAxios();

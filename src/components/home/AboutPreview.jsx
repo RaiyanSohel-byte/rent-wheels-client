@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import aboutImage from "../assets/aboutImage.jpg";
+import aboutImage from "../../assets/aboutImage.jpg";
 
 const AboutPreview = () => {
   return (

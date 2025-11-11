@@ -4,7 +4,11 @@ import useAuth from "../hooks/useAuth";
 import Loader from "../components/Loader";
 import { motion } from "framer-motion";
 import { FaCarSide, FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
+import { MdCancel } from "react-icons/md";
 import EmptyList from "../components/EmptyList";
+import useTheme from "../hooks/useTheme";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const rowVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -20,6 +24,7 @@ const MyBookings = () => {
   const { user, setLoading, loading } = useAuth();
   const [bookings, setBookings] = useState([]);
   const [bookingLoading, setBookingLoading] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     setBookingLoading(true);
@@ -32,6 +37,40 @@ const MyBookings = () => {
       })
       .catch(() => setLoading(false));
   }, [axiosInstance, user, setLoading]);
+
+  const handleCancel = (id, carId) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#22C55E",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+      theme: `${theme === "dark" ? "dark" : "light"}`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosInstance.delete(`/bookings/${id}`).then((data) => {
+          if (data.data.deletedCount) {
+            setBookings(bookings.filter((booking) => booking._id !== id));
+            axiosInstance
+              .patch(`/cars/${carId}`, { status: "available" })
+              .then((data) => {
+                if (data.data.modifiedCount) {
+                  Swal.fire({
+                    title: "Deleted!",
+                    text: "Your booking has been cancelled.",
+                    icon: "success",
+                    confirmButtonColor: "#22C55E",
+                    theme: `${theme === "dark" ? "dark" : "light"}`,
+                  });
+                }
+              });
+          }
+        });
+      }
+    });
+  };
 
   if (loading || bookingLoading) return <Loader />;
 
@@ -54,7 +93,7 @@ const MyBookings = () => {
                 <th className="p-3 text-left">Category</th>
                 <th className="p-3 text-left">Location</th>
                 <th className="p-3 text-left">Booked On</th>
-                <th className="p-3 text-left">Status</th>
+                <th className="p-3 text-left">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -92,16 +131,12 @@ const MyBookings = () => {
                     </h3>
                   </td>
                   <td className="p-3">
-                    <span
-                      className={`px-3 py-1 rounded-full text-sm font-semibold ${
-                        booking.status === "available"
-                          ? "bg-green-100 text-green-700"
-                          : "bg-red-100 text-red-700"
-                      }`}
+                    <button
+                      onClick={() => handleCancel(booking._id, booking.carId)}
+                      className="btn btn-sm btn-outline btn-error flex items-center gap-1"
                     >
-                      {booking.status.charAt(0).toUpperCase() +
-                        booking.status.slice(1)}
-                    </span>
+                      <MdCancel /> Cancel
+                    </button>
                   </td>
                 </motion.tr>
               ))}

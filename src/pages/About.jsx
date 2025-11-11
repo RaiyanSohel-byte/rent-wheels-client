@@ -2,8 +2,11 @@ import React from "react";
 import aboutImage from "../assets/aboutImage2.jpg";
 import { motion } from "framer-motion";
 import { FaCar, FaHandshake, FaDollarSign, FaClock } from "react-icons/fa";
-import OurTeam from "../components/OurTeam";
-import Timeline from "../components/Timeline";
+import Timeline from "../components/about/Timeline";
+import OurTeam from "../components/about/OurTeam";
+import VisionMission from "../components/about/VisionMission";
+import StatsSection from "../components/about/StatsSection";
+import CarBrandMarquee from "../components/about/CarBrandMarquee";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -30,8 +33,8 @@ const About = () => {
   ];
 
   return (
-    <section className="min-h-screen my-10 bg-gradient-to-br from-base-100/50 via-base-200/30 to-base-100/50 text-base-content py-20 px-6 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16 relative z-10">
+    <section className="min-h-screen  bg-gradient-to-br from-base-100/50 via-base-200/30 to-base-100/50 text-base-content py-20 px-6 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto my-20 flex flex-col lg:flex-row items-center gap-16 relative z-10">
         <motion.div
           className="w-full md:w-1/2"
           initial={{ opacity: 0, x: -100 }}
@@ -88,10 +91,11 @@ const About = () => {
           </div>
         </motion.div>
       </div>
-      <div>
+      <div className="space-y-20">
+        <VisionMission />
+        <StatsSection />
         <Timeline />
-      </div>
-      <div className="mt-24">
+        <CarBrandMarquee />
         <OurTeam />
       </div>
     </section>

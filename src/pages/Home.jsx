@@ -1,14 +1,12 @@
 import React from "react";
-import HeroSection from "../components/HeroSection";
-import Loader from "../components/Loader";
-import TopRatedCars from "../components/TopRatedCars";
-import CustomerTestimonials from "../components/CustomerTestimonials";
-import WhyRentWithUs from "../components/WhyRentWithUs";
-import AboutPreview from "../components/AboutPreview";
-import FAQPreview from "../components/FAQPreview";
-import CallToAction from "../components/CallToAction";
-import LatestCars from "../components/LatestCars";
-import CarBrandMarquee from "../components/CarBrandMarquee";
+import HeroSection from "../components/home/HeroSection";
+import TopRatedCars from "../components/home/TopRatedCars";
+import FAQPreview from "../components/home/FAQPreview";
+import CallToAction from "../components/home/CallToAction";
+import AboutPreview from "../components/home/AboutPreview";
+import CustomerTestimonials from "../components/home/CustomerTestimonials";
+import WhyRentWithUs from "../components/home/WhyRentWithUs";
+import LatestCars from "../components/home/LatestCars";
 
 const Home = () => {
   return (
@@ -20,7 +18,6 @@ const Home = () => {
         <LatestCars />
         <WhyRentWithUs />
         <TopRatedCars />
-        <CarBrandMarquee />
         <CustomerTestimonials />
         <AboutPreview />
         <FAQPreview />
