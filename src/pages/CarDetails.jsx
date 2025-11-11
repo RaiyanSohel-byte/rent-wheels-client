@@ -99,7 +99,7 @@ const CarDetails = () => {
         onClick={() => navigate("/browseCars")}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="flex items-center gap-2 text-md sm:text-primary font-medium text-secondary mb-6 cursor-pointer"
+        className="flex items-center gap-2 text-xl text-primary font-semibold mb-6 cursor-pointer"
       >
         <FaArrowLeft /> Browse Other Cars
       </motion.button>
@@ -108,7 +108,7 @@ const CarDetails = () => {
           <img
             src={car.imageUrl}
             alt={car.carName}
-            className="rounded-2xl w-full h-[400px] object-cover shadow-lg"
+            className="rounded-2xl w-full lg:h-[400px] object-cover shadow-lg"
           />
           <span className="absolute top-4 left-4 bg-primary text-secondary px-4 py-1 rounded-full text-sm">
             {car.category}
@@ -121,7 +121,7 @@ const CarDetails = () => {
         >
           <div>
             <motion.h2
-              className="text-4xl font-bold text-primary mb-3 flex items-center gap-2"
+              className="text-3xl lg:title font-bold text-primary mb-3 flex items-center gap-2"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}

@@ -16,6 +16,7 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import MyListings from "../pages/MyListings";
 import MyBookings from "../pages/MyBookings";
 import Error404 from "../pages/Error404";
+import NotFound from "../components/NotFound";
 
 export const router = createBrowserRouter([
   {
