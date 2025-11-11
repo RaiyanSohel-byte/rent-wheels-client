@@ -8,6 +8,7 @@ import AboutPreview from "../components/AboutPreview";
 import FAQPreview from "../components/FAQPreview";
 import CallToAction from "../components/CallToAction";
 import LatestCars from "../components/LatestCars";
+import CarBrandMarquee from "../components/CarBrandMarquee";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
         <LatestCars />
         <WhyRentWithUs />
         <TopRatedCars />
+        <CarBrandMarquee />
         <CustomerTestimonials />
         <AboutPreview />
         <FAQPreview />

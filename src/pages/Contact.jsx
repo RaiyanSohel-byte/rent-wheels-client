@@ -33,7 +33,7 @@ const Contact = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    toast.success("Message Sent Successfully!");
+    toast.success("Message Sent!");
     e.target.reset();
   };
 

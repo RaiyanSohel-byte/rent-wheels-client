@@ -10,7 +10,7 @@ const EmptyList = ({ pageText }) => {
         animationData={empty}
         loop={true}
       ></Lottie>
-      <h3 className="text-center title text-error mb-4">{pageText}</h3>
+      <h3 className="text-center title text-error mb-8">{pageText}</h3>
       <div className="flex justify-center">
         <Link to="/browseCars" className="btn text-white btn-error">
           Browse Cars

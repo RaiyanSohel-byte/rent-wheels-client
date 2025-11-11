@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import CarCard from "./CarCard";
 import useAuth from "../hooks/useAuth";
 import Loader from "./Loader";
+import { Link } from "react-router";
 const LatestCars = () => {
   const axiosInstance = useAxios();
   const [cars, setCars] = useState([]);
@@ -50,6 +51,14 @@ const LatestCars = () => {
           </motion.div>
         ))}
       </motion.div>
+      <div className="flex justify-center mt-15">
+        <Link
+          to="/browseCars"
+          className="btn btn-primary btn-outline hover:text-secondary"
+        >
+          Show All Cars
+        </Link>
+      </div>
     </section>
   );
 };
