@@ -2,9 +2,7 @@
   <img src="./src/assets/logoDark.png" alt="Rent Wheels Logo" width="150"/>
 </p>
 
-# 🚗 Rent Wheels
-
-[🌐 Live Site](https://your-live-site-url.com)
+[🌐 Live Site](https://stirring-gingersnap-70f67e.netlify.app/)
 
 **Rent Wheels** is a modern, responsive car rental web application that allows users to browse, search, and book cars efficiently.  
 It provides a smooth user experience with a clean UI, advanced filtering, and robust backend functionality.
