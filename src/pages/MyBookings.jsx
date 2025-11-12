@@ -56,7 +56,7 @@ const MyBookings = () => {
         axiosInstanceSecured.delete(`/bookings/${id}`).then((data) => {
           if (data.data.deletedCount) {
             setBookings(bookings.filter((booking) => booking._id !== id));
-            axiosInstance
+            axiosInstanceSecured
               .patch(`/cars/${carId}`, { status: "available" })
               .then((data) => {
                 if (data.data.modifiedCount) {

@@ -6,6 +6,7 @@ import CarCard from "../components/CarCard";
 import useAuth from "../hooks/useAuth";
 import useSearch from "../hooks/useSearch";
 import EmptyList from "../components/EmptyList";
+import { MdCancel } from "react-icons/md";
 
 const containerVariants = {
   hidden: {},
@@ -65,12 +66,12 @@ const BrowseCars = () => {
           </div>
           {search && (
             <div className="flex justify-center my-4">
-              {" "}
               <button
                 type="button"
                 onClick={handleClear}
-                className="btn btn-primary text-secondary btn-sm lg:btn-md"
+                className="flex items-center cursor-pointer gap-2 bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 hover:border-primary/30 px-4 py-2 rounded-md font-medium transition-all"
               >
+                <MdCancel className="text-lg" />
                 Clear Search
               </button>
             </div>
