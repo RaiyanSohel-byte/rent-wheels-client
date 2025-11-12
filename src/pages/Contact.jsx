@@ -1,7 +1,20 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaClock } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaPhone,
+  FaClock,
+  FaWhatsapp,
+} from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+} from "react-icons/fa";
 import { toast } from "react-toastify";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Contact = () => {
   const contactInfo = [
@@ -38,7 +51,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-base-100 via-base-200/50 to-base-100 text-base-content py-20 px-6 my-10 relative overflow-hidden">
+    <section className="min-h-screen max-w-[1200px] mx-auto bg-gradient-to-br from-base-100 via-base-200/50 to-base-100 text-base-content py-20 px-6 my-10 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl -z-10"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -z-10"></div>
 
@@ -71,18 +84,6 @@ const Contact = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
-
-          <div className="mt-10 text-center lg:text-left">
-            <p className="text-gray-500 mb-3">Need quick help?</p>
-            <a
-              href="https://wa.me/8801790839334"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-accent btn-wide text-white"
-            >
-              Chat on WhatsApp
-            </a>
           </div>
         </motion.div>
 
@@ -140,7 +141,59 @@ const Contact = () => {
           </motion.button>
         </motion.form>
       </div>
+      <div className="flex justify-center lg:block">
+        <div className="mt-10">
+          <h4 className="font-semibold text-lg mb-4 text-center lg:text-left">
+            Connect with us
+          </h4>
+          <div className="flex gap-4">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-all"
+            >
+              <FaFacebookF />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-pink-500 text-white hover:bg-pink-600 transition-all"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-800 text-white hover:bg-blue-900 transition-all"
+            >
+              <FaLinkedinIn />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-white hover:bg-sky-600 transition-all"
+            >
+              <FaXTwitter />
+            </a>
+          </div>
+        </div>
+      </div>
 
+      <div className="mt-10 text-center lg:text-left">
+        <p className="text-gray-500 mb-3">Need quick help?</p>
+        <a
+          href="https://wa.me/8801790839334"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-success btn-wide text-white"
+        >
+          <FaWhatsapp /> Chat on WhatsApp
+        </a>
+      </div>
       <motion.div
         className="w-full max-w-[1200px] mx-auto mt-16 h-72 rounded-2xl overflow-hidden shadow-2xl"
         initial={{ opacity: 0, y: 50 }}
