@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 import useAuth from "../hooks/useAuth";
-import useAxios from "../hooks/useAxios";
+import useAxiosSecured from "../hooks/useAxiosSecured";
 
 const AddCar = () => {
   const { user } = useAuth() || {};
-  const axiosInstance = useAxios();
+  const axiosInstanceSecured = useAxiosSecured();
   const [loading, setLoading] = useState(false);
 
   const handleAddCar = (e) => {
@@ -29,7 +29,7 @@ const AddCar = () => {
       provider_name: user.displayName,
       posted_at: new Date().toLocaleString(),
     };
-    axiosInstance.post("/cars", carData).then((data) => {
+    axiosInstanceSecured.post("/cars", carData).then((data) => {
       if (data.data.insertedId) {
         console.log(carData);
         toast.success("Car added successfully!");

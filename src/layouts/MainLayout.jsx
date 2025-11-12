@@ -9,7 +9,7 @@ import Loader from "../components/Loader";
 const MainLayout = () => {
   const { state } = useNavigation();
   return (
-    <div className="bg-gradient-to-r from-base-100 to-accent/5">
+    <div className="bg-gradient-to-r from-base-100 to-accent/6">
       <Navbar />
       <ScrollToTop />
       {state === "loading" ? <Loader /> : <Outlet />}

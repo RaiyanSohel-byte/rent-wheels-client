@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import useAxios from "../hooks/useAxios";
 import useAuth from "../hooks/useAuth";
 import Loader from "../components/Loader";
 import { motion } from "framer-motion";
@@ -8,9 +7,11 @@ import Swal from "sweetalert2";
 import useTheme from "../hooks/useTheme";
 import { toast } from "react-toastify";
 import EmptyList from "../components/EmptyList";
+import useAxiosSecured from "../hooks/useAxiosSecured";
 
 const MyListings = () => {
-  const axiosInstance = useAxios();
+  const axiosInstance = useAxiosSecured();
+  const axiosInstanceSecured = useAxiosSecured();
   const [editingCar, setEditingCar] = useState(null);
   const { user, setLoading, loading } = useAuth();
   const [cars, setCars] = useState([]);
@@ -41,7 +42,7 @@ const MyListings = () => {
       theme: `${theme === "dark" ? "dark" : "light"}`,
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosInstance.delete(`/cars/${id}`).then((data) => {
+        axiosInstanceSecured.delete(`/cars/${id}`).then((data) => {
           if (data.data.deletedCount) {
             setCars(cars.filter((car) => car._id !== id));
             setLoading(false);
@@ -76,7 +77,7 @@ const MyListings = () => {
       provider_image: user.photoURL,
       provider_name: user.displayName,
     };
-    axiosInstance.patch(`/cars/${id}`, carData).then((data) => {
+    axiosInstanceSecured.patch(`/cars/${id}`, carData).then((data) => {
       setLoading(false);
       if (data.data.modifiedCount) {
         axiosInstance.get("/cars").then((data) => {

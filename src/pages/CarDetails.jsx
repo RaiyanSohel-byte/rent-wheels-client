@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
-import useAxios from "../hooks/useAxios";
 import useAuth from "../hooks/useAuth";
 import Loader from "../components/Loader";
 import {
@@ -14,9 +13,11 @@ import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import bookingAnimation from "../assets/bookingAnimation.json";
 import { toast } from "react-toastify";
+import useAxiosSecured from "../hooks/useAxiosSecured";
+
 const CarDetails = () => {
   const { id } = useParams();
-  const axiosInstance = useAxios();
+  const axiosInstanceSecured = useAxiosSecured();
   const { user, setLoading } = useAuth();
   const [car, setCar] = useState(null);
   const [isBooking, setIsBooking] = useState(false);
@@ -24,11 +25,11 @@ const CarDetails = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axiosInstance.get(`/cars/${id}`).then((data) => {
+    axiosInstanceSecured.get(`/cars/${id}`).then((data) => {
       setCar(data.data);
       setLoading(false);
     });
-  }, [axiosInstance, id, setLoading]);
+  }, [axiosInstanceSecured, id, setLoading]);
 
   if (!car) return <Loader />;
 
@@ -44,9 +45,9 @@ const CarDetails = () => {
         bookedAt: new Date().toLocaleDateString(),
       },
     };
-    axiosInstance.post("/bookings", bookingData).then((data) => {
+    axiosInstanceSecured.post("/bookings", bookingData).then((data) => {
       if (data.data.insertedId) {
-        axiosInstance
+        axiosInstanceSecured
           .patch(`/cars/${car._id}`, { status: "unavailable" })
           .then((data) => {
             console.log(data.data);

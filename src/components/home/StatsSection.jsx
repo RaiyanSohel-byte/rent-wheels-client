@@ -8,25 +8,25 @@ const stats = [
   {
     label: "Cars Available",
     value: "500+",
-    color: "bg-accent/40",
+    color: "bg-gradient-to-r from-base-100 to-[#161ef9]/10",
     icon: <FaCarOn color="#161ef9" />,
   },
   {
     label: "Happy Clients",
     value: "10K+",
-    color: "bg-success/40",
+    color: "bg-gradient-to-r from-base-100 to-[#f7c500]/10",
     icon: <IoMdHappy color="#f7c500" />,
   },
   {
     label: "Cities Covered",
     value: "25+",
-    color: "bg-warning/40",
+    color: "bg-gradient-to-r from-base-100 to-[#10B981]/10",
     icon: <FaCity color="#10B981" />,
   },
   {
     label: "Years of Service",
     value: "5+",
-    color: "bg-purple-100",
+    color: "bg-gradient-to-r from-base-100 to-[#32aaf9]/10",
     icon: <FaCalendarCheck color="#32aaf9" />,
   },
 ];
@@ -45,7 +45,7 @@ const StatsSection = () => {
             delay: i * 0.2,
             ease: "easeOut",
           }}
-          className="bg-base-200/70 backdrop-blur-lg rounded-2xl shadow-lg p-6 border border-primary/20 hover:shadow-xl transition-all"
+          className={`${stat.color} rounded-2xl shadow-lg p-6 border border-primary/20 hover:shadow-xl transition-all`}
         >
           <motion.h4
             initial={{ scale: 0.8, opacity: 0 }}

@@ -9,6 +9,7 @@ import EmptyList from "../components/EmptyList";
 import useTheme from "../hooks/useTheme";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import useAxiosSecured from "../hooks/useAxiosSecured";
 
 const rowVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -20,6 +21,7 @@ const rowVariants = {
 };
 
 const MyBookings = () => {
+  const axiosInstanceSecured = useAxiosSecured();
   const axiosInstance = useAxios();
   const { user, setLoading, loading } = useAuth();
   const [bookings, setBookings] = useState([]);
@@ -28,7 +30,7 @@ const MyBookings = () => {
 
   useEffect(() => {
     setBookingLoading(true);
-    axiosInstance
+    axiosInstanceSecured
       .get(`/bookings?email=${user.email}`)
       .then((res) => {
         setBookings(res.data);
@@ -36,7 +38,7 @@ const MyBookings = () => {
         setBookingLoading(false);
       })
       .catch(() => setLoading(false));
-  }, [axiosInstance, user, setLoading]);
+  }, [axiosInstance, user, setLoading, axiosInstanceSecured]);
 
   const handleCancel = (id, carId) => {
     Swal.fire({
@@ -51,7 +53,7 @@ const MyBookings = () => {
       theme: `${theme === "dark" ? "dark" : "light"}`,
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosInstance.delete(`/bookings/${id}`).then((data) => {
+        axiosInstanceSecured.delete(`/bookings/${id}`).then((data) => {
           if (data.data.deletedCount) {
             setBookings(bookings.filter((booking) => booking._id !== id));
             axiosInstance
