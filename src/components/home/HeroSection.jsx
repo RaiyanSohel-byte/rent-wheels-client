@@ -118,7 +118,7 @@ const HeroSection = () => {
         <FaChevronRight className="text-2xl md:text-3xl" />
       </button>
 
-      <div className="absolute bottom-18 md:bottom-40 left-1/2 transform -translate-x-1/2 w-[90%] max-w-xl z-30">
+      <div className="absolute bottom-36 sm:bottom-50 left-1/2 transform -translate-x-1/2 w-[90%] max-w-xl z-30">
         <form onSubmit={handleSubmit} className="w-full">
           <div className="flex items-center bg-gray-200 rounded-md  shadow-lg transition-all duration-300 focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
             <input
@@ -135,14 +135,14 @@ const HeroSection = () => {
             </button>
           </div>
         </form>
-        <div className="flex justify-center my-5">
+        {/* <div className="flex justify-center my-5">
           <Link
             to="/browseCars"
             className="btn bg-gray-100 text-gray-800 hover:bg-white border-none transition-all duration-300"
           >
             Browse Cars
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );

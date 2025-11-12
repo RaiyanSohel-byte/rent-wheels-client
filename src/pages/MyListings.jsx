@@ -150,7 +150,7 @@ const MyListings = () => {
                           : "bg-red-100 text-red-700"
                       }`}
                     >
-                      {car.status.charAt(0).toUpperCase() + car.status.slice(1)}
+                      {car.status === "available" ? "Available" : "Booked"}
                     </span>
                   </td>
                   <td className="p-3 flex gap-2">

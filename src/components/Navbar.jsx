@@ -144,7 +144,7 @@ const Navbar = () => {
       <div className="navbar max-w-[1440px] mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div tabIndex={0} role="button" className="btn btn-ghost xl:hidden">
               <GiHamburgerMenu />
             </div>
             <ul
@@ -162,7 +162,7 @@ const Navbar = () => {
             />
           </Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center hidden xl:flex">
           <ul className="menu menu-horizontal px-1 font-semibold">{links}</ul>
         </div>
         <div className="navbar-end gap-3">

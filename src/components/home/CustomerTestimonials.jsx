@@ -54,7 +54,7 @@ const CustomerTestimonials = () => {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="bg-base-200 border border-base-300 rounded-3xl shadow-md hover:shadow-lg transition-all p-8 flex flex-col items-center text-center"
+              className="bg-base-200 border border-primary/20 rounded-3xl shadow-md hover:shadow-lg transition-all p-8 flex flex-col items-center text-center"
             >
               <img
                 src={t.img}

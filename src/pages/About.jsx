@@ -5,7 +5,6 @@ import { FaCar, FaHandshake, FaDollarSign, FaClock } from "react-icons/fa";
 import Timeline from "../components/about/Timeline";
 import OurTeam from "../components/about/OurTeam";
 import VisionMission from "../components/about/VisionMission";
-import StatsSection from "../components/about/StatsSection";
 import CarBrandMarquee from "../components/about/CarBrandMarquee";
 
 const cardVariants = {
@@ -93,7 +92,6 @@ const About = () => {
       </div>
       <div className="space-y-20">
         <VisionMission />
-        <StatsSection />
         <Timeline />
         <CarBrandMarquee />
         <OurTeam />
