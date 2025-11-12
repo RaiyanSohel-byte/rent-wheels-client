@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation } from "swiper/modules";
 import { motion } from "framer-motion";
 
 import "swiper/css";
@@ -25,7 +25,7 @@ const teamMembers = [
 
 const OurTeam = () => {
   return (
-    <section className="py-20 text-base-content text-center ">
+    <section className="py-20 text-base-content text-center">
       <div className="max-w-[1440px] mx-auto px-4">
         <div className="mb-10 space-y-4">
           <h2 className="title">Our Team</h2>
@@ -33,18 +33,18 @@ const OurTeam = () => {
             Meet the passionate minds driving our success.
           </p>
         </div>
-        <motion.div
+
+        <div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
           <Swiper
-            modules={[Autoplay, Pagination, Navigation]}
+            modules={[Pagination, Navigation]}
             spaceBetween={30}
             slidesPerView={1}
             loop={true}
-            autoplay={{ delay: 2500, disableOnInteraction: false }}
             navigation={true}
             breakpoints={{
               640: { slidesPerView: 2 },
@@ -70,7 +70,7 @@ const OurTeam = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

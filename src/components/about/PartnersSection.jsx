@@ -15,13 +15,14 @@ const PartnersSection = () => {
   return (
     <section className="text-center">
       <h3 className="text-2xl font-semibold mb-8">Our Trusted Partners</h3>
-      <div className="flex flex-wrap justify-center gap-10 opacity-80">
+      <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-6 justify-items-center opacity-80">
         {logos.map((logo, index) => (
           <img
             key={index}
             src={logo}
             alt="Car Logo"
             className="h-10 w-auto object-contain"
+            loading="lazy"
           />
         ))}
       </div>
