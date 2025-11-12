@@ -146,9 +146,10 @@ const Contact = () => {
           <h4 className="font-semibold text-lg mb-4 text-center lg:text-left">
             Connect with us
           </h4>
+
           <div className="flex gap-4">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/raiyan.sohel.2024/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-all"
@@ -156,7 +157,7 @@ const Contact = () => {
               <FaFacebookF />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/raiyansohel/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 flex items-center justify-center rounded-full bg-pink-500 text-white hover:bg-pink-600 transition-all"
@@ -164,7 +165,7 @@ const Contact = () => {
               <FaInstagram />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/raiyan-sohel-5450b71a1/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-800 text-white hover:bg-blue-900 transition-all"
@@ -172,7 +173,7 @@ const Contact = () => {
               <FaLinkedinIn />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://x.com/RaiyanSohel1"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-white hover:bg-sky-600 transition-all"

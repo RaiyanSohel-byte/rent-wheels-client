@@ -132,7 +132,16 @@ const Footer = () => {
                 (Icon, idx) => (
                   <a
                     key={idx}
-                    href="#"
+                    target="_blank"
+                    href={`${
+                      idx === 0
+                        ? "https://www.facebook.com/raiyan.sohel.2024/"
+                        : idx === 1
+                        ? "https://x.com/RaiyanSohel1"
+                        : idx === 2
+                        ? "https://www.instagram.com/raiyansohel/"
+                        : "https://www.linkedin.com/in/raiyan-sohel-5450b71a1/"
+                    }`}
                     className={
                       theme === "dark"
                         ? "p-3 rounded-full bg-gray-200 hover:bg-accent transition-colors duration-200 text-white"

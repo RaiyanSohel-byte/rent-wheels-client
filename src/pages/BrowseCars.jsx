@@ -7,6 +7,7 @@ import useAuth from "../hooks/useAuth";
 import useSearch from "../hooks/useSearch";
 import EmptyList from "../components/EmptyList";
 import { MdCancel } from "react-icons/md";
+import useTheme from "../hooks/useTheme";
 
 const containerVariants = {
   hidden: {},
@@ -30,6 +31,7 @@ const BrowseCars = () => {
   const [visibleCount, setVisibleCount] = useState(6);
   const { user, setLoading, loading } = useAuth();
   const { search, setSearch } = useSearch();
+  const { theme } = useTheme();
 
   useEffect(() => {
     setLoading(true);
@@ -54,10 +56,8 @@ const BrowseCars = () => {
     const sorted = [...filtered].sort((a, b) => {
       if (sort === "priceLow") return a.rentPrice - b.rentPrice;
       if (sort === "priceHigh") return b.rentPrice - a.rentPrice;
-      if (sort === "yearNew")
-        return new Date(b.posted_at) - new Date(a.posted_at);
-      if (sort === "yearOld")
-        return new Date(a.posted_at) - new Date(b.posted_at);
+      if (sort === "yearNew") return b.posted_at.localeCompare(a.posted_at);
+      if (sort === "yearOld") return a.posted_at.localeCompare(b.posted_at);
       return 0;
     });
 
@@ -110,13 +110,38 @@ const BrowseCars = () => {
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value)}
-            className="border border-gray-300 rounded-md px-4 py-2 bg-primary text-secondary focus:ring-2 focus:ring-primary cursor-pointer"
+            className="border border-primary rounded-md px-4 py-2 bg-base-300 text-primary focus:ring-2 focus:ring-primary cursor-pointer"
           >
-            <option value="">Sort by</option>
-            <option value="priceLow">Price: Low → High</option>
-            <option value="priceHigh">Price: High → Low</option>
-            <option value="yearNew">Year: Newest</option>
-            <option value="yearOld">Year: Oldest</option>
+            <option
+              className={theme === "light" ? "text-black" : "text-white"}
+              value=""
+            >
+              Sort by
+            </option>
+            <option
+              className={theme === "light" ? "text-black" : "text-white"}
+              value="priceLow"
+            >
+              Price: Low → High
+            </option>
+            <option
+              className={theme === "light" ? "text-black" : "text-white"}
+              value="priceHigh"
+            >
+              Price: High → Low
+            </option>
+            <option
+              className={theme === "light" ? "text-black" : "text-white"}
+              value="yearNew"
+            >
+              Year: Newest
+            </option>
+            <option
+              className={theme === "light" ? "text-black" : "text-white"}
+              value="yearOld"
+            >
+              Year: Oldest
+            </option>
           </select>
         </div>
         <form className="mb-10" onSubmit={handleSubmit}>
