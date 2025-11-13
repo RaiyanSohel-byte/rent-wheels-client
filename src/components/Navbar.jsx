@@ -180,10 +180,7 @@ const Navbar = () => {
                 className="btn btn-ghost btn-circle avatar hover:ring-1 hover:ring-accent hover:ring-offset-2 transition-all"
               >
                 <div className="w-14 rounded-full border-2 border-primary">
-                  <img
-                    alt="Tailwind CSS Navbar component"
-                    src={user.photoURL}
-                  />
+                  <img alt={user.displayName} src={user.photoURL} />
                 </div>
               </div>
               <ul
@@ -194,7 +191,7 @@ const Navbar = () => {
                   <div className="flex items-center gap-1 p-2 bg-base-100 rounded-lg">
                     <img
                       src={user.photoURL}
-                      alt="User Avatar"
+                      alt={user.displayName}
                       className="w-12 h-12 rounded-full border-2 border-primary"
                     />
                     <div className="flex flex-col">

@@ -34,7 +34,7 @@ const ScrollToTopButton = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-primary text-secondary rounded-full shadow-lg flex items-center justify-center hover:bg-accent transition-colors cursor-pointer"
+          className="fixed bottom-22 right-8 z-50 w-12 h-12 bg-primary text-secondary rounded-full shadow-lg flex items-center justify-center hover:bg-accent transition-colors cursor-pointer"
           aria-label="Scroll to top"
         >
           <FaArrowUp />
