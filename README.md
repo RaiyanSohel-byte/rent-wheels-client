@@ -74,40 +74,30 @@ npm run dev
 npm run start
 ```
 
-📂 Folder Structure
-Frontend:
+## 📂 Folder Structure
+
+### 🖥 Frontend
 
 src/
-│
-├── components/ → Reusable UI components (CarCard, Loader EmptyList, etc.)
+├── components/ → Reusable UI components (CarCard, Loader, EmptyList, etc.)
 ├── hooks/ → Custom hooks (useAxios, useAuth, useSearch)
-├── pages/ → Pages (BrowseCars, Contact, CarDetails, etc.)
+├── pages/ → Application pages (BrowseCars, Contact, CarDetails, etc.)
 ├── assets/ → Images, logos, and Lottie animation files
-│
-layouts/
-│
-├──MainLayout.jsx → Main Layout component
-│
-│
-main.jsx → Root component
-│
-routes/
-│
-├──PrivateRoute/
-│
-├──PrivateRoute.jsx → Private routes
-│
-├──router.jsx → All routes defined
-│
-contexts/
-│
-├──authContext → Authentication context api
-│
-├──SearchContext → Search feature context api
-│
-├──ThemeContext → Theme toggle context api
 
----
+layouts/
+├── MainLayout.jsx → Main layout component
+
+main.jsx → Root React component
+
+routes/
+├── PrivateRoute/
+│ ├── PrivateRoute.jsx → Private route handler
+├── router.jsx → All routes defined here
+
+contexts/
+├── authContext/ → Authentication Context API
+├── SearchContext/ → Search feature Context API
+├── ThemeContext/ → Theme toggle Context API
 
 ## 🛠️ Backend:
 
