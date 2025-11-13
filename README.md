@@ -78,6 +78,7 @@ npm run start
 
 ### 🖥 Frontend
 
+```
 src/
 ├── components/ → Reusable UI components (CarCard, Loader, EmptyList, etc.)
 ├── hooks/ → Custom hooks (useAxios, useAuth, useSearch)
@@ -98,6 +99,7 @@ contexts/
 ├── authContext/ → Authentication Context API
 ├── SearchContext/ → Search feature Context API
 ├── ThemeContext/ → Theme toggle Context API
+```
 
 ## 🛠️ Backend:
 
