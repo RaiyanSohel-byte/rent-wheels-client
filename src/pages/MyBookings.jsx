@@ -113,13 +113,13 @@ const MyBookings = () => {
                   animate="visible"
                   className="border-b hover:bg-base-300 hover:text-primary transition-colors"
                 >
-                  <td className="p-3 flex items-center gap-2">
+                  <td className="p-3 md:flex items-center gap-2">
                     <img
                       src={booking.imageUrl}
                       alt={booking.carName}
                       className="w-12 h-12 object-cover rounded-md"
                     />
-                    <span>{booking.carName}</span>
+                    <h3 className="mt-3 md:mt-0">{booking.carName}</h3>
                   </td>
                   <td className="p-3 ">
                     <h3 className="flex items-center gap-1">
