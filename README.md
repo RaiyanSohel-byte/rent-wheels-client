@@ -53,12 +53,10 @@ It provides a smooth user experience with a clean UI, advanced filtering, and ro
 git clone https://github.com/RaiyanSohel-byte/rent-wheels-client.git
 Backend:
 
-bash
-Copy code
 git clone https://github.com/RaiyanSohel-byte/rent-wheels-server.git
 📦 Install Dependencies
-bash
-Copy code
+
+
 # Frontend
 cd rent-wheels-client
 npm install
@@ -68,29 +66,101 @@ cd ../rent-wheels-server
 npm install
 🚀 Start Development
 bash
-Copy code
+
 # Frontend
 npm run dev
 
 # Backend
 npm run start
+```
+
 📂 Folder Structure
 Frontend:
-css
-Copy code
+
 src/
 │
-├── components/    → Reusable UI components (CarCard, Loader, EmptyList, etc.)
-├── hooks/         → Custom hooks (useAxios, useAuth, useSearch)
-├── pages/         → Pages (BrowseCars, Contact, CarDetails, etc.)
-├── assets/        → Images, logos, and Lottie animation files
-└── App.jsx        → Root app component
-Backend:
-pgsql
-Copy code
-routes/            → API endpoints (cars, bookings, users, etc.)
-models/            → MongoDB schemas
-index.js           → Express server configuration
+├── components/ → Reusable UI components (CarCard, Loader EmptyList, etc.)
+├── hooks/ → Custom hooks (useAxios, useAuth, useSearch)
+├── pages/ → Pages (BrowseCars, Contact, CarDetails, etc.)
+├── assets/ → Images, logos, and Lottie animation files
+│
+layouts/
+│
+├──MainLayout.jsx → Main Layout component
+│
+│
+main.jsx → Root component
+│
+routes/
+│
+├──PrivateRoute/
+│
+├──PrivateRoute.jsx → Private routes
+│
+├──router.jsx → All routes defined
+│
+contexts/
+│
+├──authContext → Authentication context api
+│
+├──SearchContext → Search feature context api
+│
+├──ThemeContext → Theme toggle context api
+
+---
+
+## 🛠️ Backend:
+
+**Tech Stack:** Node.js, Express.js, MongoDB Atlas, Firebase Admin SDK
+
+routes/ → API endpoints (cars, bookings, etc.)
+index.js → Main Express server setup and middleware configuration
+.env → Environment variables (DB credentials, Firebase keys)
+
+- Uses **MongoDB Atlas** for cloud database storage
+- Handles **authentication** with Firebase Admin SDK
+- Provides **secure RESTful APIs** for cars and bookings
+- Deployed on **Vercel** for scalability and performance
+
+---
+
+## 🚗 API Overview
+
+The backend provides RESTful API endpoints for managing cars and bookings.
+All secured routes use Firebase Authentication for authorization.
+
+### 🔹 Cars Endpoints
+
+| Method | Endpoint      | Description                            | Protected |
+| ------ | ------------- | -------------------------------------- | --------- |
+| GET    | `/cars`       | Get all cars or filter by provider     | ❌        |
+| GET    | `/cars/:id`   | Get car details by ID                  | ✅        |
+| POST   | `/cars`       | Add a new car                          | ✅        |
+| PATCH  | `/cars/:id`   | Update car information                 | ✅        |
+| DELETE | `/cars/:id`   | Delete a car                           | ✅        |
+| GET    | `/latestCars` | Fetch the latest 6 added cars          | ❌        |
+| GET    | `/search`     | Search cars by name (case-insensitive) | ❌        |
+
+### 🔹 Bookings Endpoints
+
+| Method | Endpoint        | Description                         | Protected |
+| ------ | --------------- | ----------------------------------- | --------- |
+| GET    | `/bookings`     | Get all bookings for a user (email) | ✅        |
+| POST   | `/bookings`     | Create a new booking                | ✅        |
+| PATCH  | `/bookings/:id` | Update booking details              | ✅        |
+| DELETE | `/bookings/:id` | Delete a booking                    | ✅        |
+
+---
+
+✅ **Notes:**
+
+- Protected routes (`✅`) require a valid Firebase ID token in the header:
+  Authorization: Bearer <token>
+
+- The backend is deployed on **Vercel**, connected to **MongoDB Atlas**.
+
+---
+
 📬 Contact
 Email: afnan19262@gmail.com
 
@@ -99,4 +169,7 @@ WhatsApp: +8801790839334
 LinkedIn: https://www.linkedin.com/in/raiyan-sohel-5450b71a1/
 
 ⭐ If you like this project, don’t forget to star the repository!
+
+```
+
 ```
