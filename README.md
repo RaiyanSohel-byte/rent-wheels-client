@@ -65,7 +65,7 @@ npm install
 cd ../rent-wheels-server
 npm install
 🚀 Start Development
-bash
+
 
 # Frontend
 npm run dev
