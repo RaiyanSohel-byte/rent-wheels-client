@@ -52,7 +52,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-[80vh] lg:h-[100vh] overflow-hidden">
+    <section className="relative w-full h-[80vh] lg:h-[700px] overflow-hidden">
       {swiperReady && (
         <Swiper
           modules={[Navigation, EffectFade, Pagination]}
